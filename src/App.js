@@ -1,24 +1,48 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Input from './components/Input'
+import Pinned from './components/Pinned';
 
-function App() {
+const data = [
+  {
+    id: Math.random() * 100,
+    heading: "Run",
+    text: "Running is good",
+    pin: false
+  },
+  {
+    id: Math.random() * 100,
+    heading: "Sleep",
+    text: "Sleeping is bad",
+    pin: false
+  }
+]
+
+const App = () => {
+
+  const [notes, setNotes] = useState(data);
+
+  const addNotes = (task) => {
+    const value = [...notes, task]
+    setNotes(value)
+  };
+
+  const pinNotes = ({ id, heading, text, pin }) => {
+
+    const temp = [...notes]
+    // console.log(temp)
+    setNotes(
+      temp.map((note) => note.id === id ? { id, heading, text, pin: !note.pin } : note
+      )
+    )
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className="App">
+      <Input value={notes} onClick={addNotes} />
+      <Pinned notes={notes} onClick={pinNotes} />
+    </section>
   );
 }
 
