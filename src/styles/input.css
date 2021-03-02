@@ -1,0 +1,25 @@
+.input-note {
+    border: 2px solid black;
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+    border-radius: 40px;
+    padding: 8px 20px;
+    margin: 20px auto;
+    position: relative;
+}
+
+
+
+.input-note input, textarea,button{
+    border: transparent;
+    font-size: larger;
+}
+
+.input-note button {
+    background: transparent;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: pointer;
+    margin: 0 5px;
+    width: 100px;
+}

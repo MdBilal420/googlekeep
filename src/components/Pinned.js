@@ -1,5 +1,5 @@
 import React from "react"
-import TagSelect from "./TagSelect"
+import '../styles/pinned.css'
 
 
 const Pinned = ({ notes, onClick, pinned, onDelete }) => {
@@ -14,7 +14,7 @@ const Pinned = ({ notes, onClick, pinned, onDelete }) => {
     }
 
     return (
-        <div>
+        <div className="pinned">
             {pinned ? <h2>Pinned</h2> : <h2>Others</h2>}
             <ul>
                 {
@@ -25,7 +25,6 @@ const Pinned = ({ notes, onClick, pinned, onDelete }) => {
                                 <h4>{note.title}</h4>
                                 <p>{note.text}</p>
                                 <button onClick={() => handleDelete(note)}>Delete</button>
-                                <TagSelect />
                             </li>
                         } else {
                             return null;

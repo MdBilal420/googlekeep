@@ -25,7 +25,7 @@ const App = () => {
 
   const [notes, setNotes] = useState(data);
 
-  const [tags, setTags] = useState([1, 2, 3]);
+  const [tags, setTags] = useState(["runnning", "sleeping"]);
 
 
   const addNotes = (task) => {
@@ -57,8 +57,8 @@ const App = () => {
   return (
     <section className="App">
       <Input value={notes} onClick={addNotes} />
-      <Pinned notes={notes} onClick={pinNotes} pinned={false} onDelete={handleDelete} />
       <Pinned notes={notes} onClick={pinNotes} pinned={true} onDelete={handleDelete} />
+      <Pinned notes={notes} onClick={pinNotes} pinned={false} onDelete={handleDelete} />
       <Tag onClick={addTag} />
       {/* {tag}  */}
       <TagSelect tags={tags} />

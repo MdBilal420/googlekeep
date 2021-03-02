@@ -9,22 +9,13 @@ const TagSelect = ({ tags }) => {
 
     console.log(tags, typeof (tags))
     return <div>
-
-        {tags}
-        {/* <select>
+        <select>
             {
                 tags.map((tag) => {
-                    return <option>{tag.name}</option>
+                    return <option>{tag}</option>
                 })
             }
-        </select> */}
-        {/* <ul>
-            {
-                arr.map((tag) => {
-                    return <li>{tag}</li>
-                })
-            }
-        </ul> */}
+        </select>
     </div>
 }
 
